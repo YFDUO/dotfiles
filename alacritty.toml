@@ -32,8 +32,8 @@ blink_interval = 1000
 
 [keyboard]
 bindings = [
-{ key = "W", mods = "Super|Shift", action = "CreateNewWindow" },
-{ key = "I", mods = "Super|Shift", action = "SpawnNewInstance" },
-{ key = "F", mods = "Super|Shift", action = "ToggleFullscreen" },
-{ key = "Q", mods = "Super|Shift", action = "Quit" },
+{ key = "N", mods = "Super|Shift", action = "CreateNewWindow" },
+{ key = "B", mods = "Super|Shift", action = "SpawnNewInstance" },
+{ key = "V", mods = "Super|Shift", action = "ToggleFullscreen" },
+{ key = "C", mods = "Super|Shift", action = "Quit" },
 ]
