@@ -2,26 +2,27 @@
 live_config_reload = true
 
 [window]
-opacity = 0.96
-padding = { x = 2, y = 2 }
+opacity = 0.86
+padding = { x = 5, y = 3 }
 dynamic_padding = true
 decorations = "None"
 startup_mode = "Maximized"
+blur = true
 
 [scrolling]
-history = 20000
+history = 10000
 multiplier = 3
 
 [font]
-normal = { family = "Maple Mono", style = "Regular" }
-bold = { family = "Maple Mono", style = "Regular" }
-italic = { family = "Maple Mono", style = "Regular" }
-bold_italic = { family = "Maple Mono", style = "Regular" }
+normal = { family = "Jetbrains Mono", style = "Regular" }
+bold = { family = "Jetbrains Mono", style = "Regular" }
+italic = { family = "Jetbrains Mono", style = "Regular" }
+bold_italic = { family = "Jetbrains Mono", style = "Regular" }
 size = 16
 
 [colors.primary]
 foreground = "#fcfcfc"
-background = "#292828"
+background = "#212020"
 
 [bell]
 animation = "EaseOut"
@@ -32,8 +33,8 @@ blink_interval = 1000
 
 [keyboard]
 bindings = [
-{ key = "N", mods = "Super|Shift", action = "CreateNewWindow" },
-{ key = "B", mods = "Super|Shift", action = "SpawnNewInstance" },
-{ key = "V", mods = "Super|Shift", action = "ToggleFullscreen" },
-{ key = "C", mods = "Super|Shift", action = "Quit" },
+{ key = "T", mods = "Super|Shift", action = "CreateNewWindow" },
+{ key = "R", mods = "Super|Shift", action = "SpawnNewInstance" },
+{ key = "F", mods = "Super|Shift", action = "ToggleFullscreen" },
+{ key = "G", mods = "Super|Shift", action = "Quit" },
 ]
