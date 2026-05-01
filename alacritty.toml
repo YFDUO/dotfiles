@@ -2,7 +2,7 @@
 live_config_reload = true
 
 [window]
-opacity = 0.9
+opacity = 0.96
 padding = { x = 2, y = 2 }
 dynamic_padding = true
 decorations = "None"
@@ -21,7 +21,7 @@ size = 16
 
 [colors.primary]
 foreground = "#fcfcfc"
-background = "#000000"
+background = "#292828"
 
 [bell]
 animation = "EaseOut"
