@@ -1,20 +1,100 @@
-#!/bin/bash
-
-entries="⏾ Suspend\n⭮ Reboot\n⏻ Shutdown\n⏻ Logout"
-
-chosen=$(echo -e "$entries" | wofi --dmenu --width=250 --height=200 --prompt="Power Menu")
-
-case $chosen in
-    "⏾ Suspend")
-        systemctl suspend
-        ;;
-    "⭮ Reboot")
-        systemctl reboot
-        ;;
-    "⏻ Shutdown")
-        systemctl poweroff
-        ;;
-    "⏻ Logout")
-        hyprctl dispatch exit
-        ;;
-esac
+{
+  "position": "top",
+    "margin-top" : 2,
+    "margin-left": 10,
+    "margin-right": 10,
+    "height" : 28,
+    "modules-left": [
+      "hyprland/workspaces",
+    ],
+    "modules-center": [
+      "hyprland/window"
+    ],
+    "modules-right": [
+    "hyprland/language",
+    "pulseaudio",
+    "cpu",
+    "battery",
+    "memory",
+    "network",
+    "temperature",
+    "clock",
+    ],
+    "hyprland/window": {
+      "format": "{}",
+      "max-length": 35,
+      "rewrite": {
+        "": "Hyprland"
+      },
+      "separate-outputs": true,
+    },
+    "hyprland/workspaces": {
+      "format": "{icon}",
+      "on-click": "activate",
+      "format-icons": {
+        "active": " ",
+      },
+      "sort-by-number": true,
+      "persistent-workspaces": {
+        "*": 4, // 5 workspaces by default on every monitor
+        "HDMI-A-1": 3 // but only three on HDMI-A-1
+      },
+    },
+    "clock": {
+      "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>",
+      "format-alt": "{:%Y-%m-%d}"
+    },
+    "cpu": {
+      "format": " {usage}%",
+      "tooltip": false
+    },
+    "memory": {
+      "format": "{}% "
+    },
+    "temperature": {
+      "critical-threshold": 80,
+      "format": "{icon} {temperatureC}°C",
+      "format-icons": ["", "", ""]
+    },
+    "battery": {
+      "states": {
+        "warning": 30,
+        "critical": 15
+      },
+      "format": "{icon}  {capacity}%",
+      "format-full": "{icon}  {capacity}%",
+      "format-charging": "  {capacity}%",
+      "format-plugged": "  {capacity}%",
+      "format-alt": "{time} {icon}",
+      "format-icons": ["", "", "", "", ""]
+    },
+    "network": {
+      "format-wifi": "  {signalStrength}%",
+      "format-ethernet": "{cidr} ",
+      "tooltip-format": "{ifname} via {gwaddr} ",
+      "format-linked": "{ifname} (No IP) ",
+      "format-disconnected": " ⚠ ",
+      "format-alt": "{ifname}: {ipaddr}/{cidr}"
+    },
+    "power": {
+        "format": "⏻",
+        "tooltip": false,
+        "on-click": "~/.config/waybar/scripts/power-menu.sh"
+    },
+    "pulseaudio": {
+      "format": "{icon}  {volume}%",
+      "format-bluetooth": "{volume}% {icon} {format_source}",
+      "format-bluetooth-muted": " {icon} {format_source}",
+      "format-muted": " {format_source}",
+      "format-icons": {
+        "headphone": "",
+        "hands-free": "",
+        "headset": "",
+        "phone": "",
+        "portable": "",
+        "car": "",
+        "default": ["", "", ""]
+      },
+      "on-click": "pavucontrol"
+    },
+}
