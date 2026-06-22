@@ -10,28 +10,42 @@ import (
 )
 
 func main() {
-    func check(grading) {
-        fmt.Print("Enter a percent of correct answers: ")
-        reader := bufio.NewReader(os.Stdin)
-        input, err := reader.ReadString('\n')
-        if err != nil { // && - and || - or
-            log.Fatal(err)
-        }
-
-        inputWithNoNs := strings.TrimSpace(input)
-        percent, err := strconv.ParseFloat(inputWithNoNs, 64)
-        if err != nil {
-            log.Fatal(err)
-        }
-
-        if percent < 0 || percent > 100 {
-            fmt.Println("Wrong input! Cant be bigger than 100 and smaller than 0")
-            check()
-        } else if percent >= grading {
-            fmt.Println("You pass exams")
-        } else {
-            fmt.Println("You fail exam")
-        }
+    fmt.Print("Enter in procents where is a line between falling and passing exam: ")
+    reader := bufio.NewReader(os.Stdin)
+    percentOfGradingStringSpace, err := reader.ReadString('\n')
+    if err != nil {
+        log.Fatal(err)
     }
-    check(60)
+
+    percentOfGradingString := strings.TrimSpace(percentOfGradingStringSpace)
+    percentOfGrading, err = strconv.ParseFloat(percentOfGradingString, 64)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    check(percentOfGrading)
+}
+
+func check(grading float64) {
+    fmt.Print("Enter a percent of correct answers: ")
+    reader := bufio.NewReader(os.Stdin)
+    input, err := reader.ReadString('\n')
+    if err != nil { // && - and || - or
+        log.Fatal(err)
+    }
+
+    inputWithNoNs := strings.TrimSpace(input)
+    percent, err := strconv.ParseFloat(inputWithNoNs, 64)
+    if err != nil {
+        log.Fatal(err)
+    }
+
+    if percent < 0 || percent > 100 {
+        fmt.Println("Wrong input! Cant be bigger than 100 and smaller than 0")
+        check(grading)
+    } else if percent >= grading {
+        fmt.Println("You pass exams")
+    } else {
+        fmt.Println("You fail exam")
+    }
 }
