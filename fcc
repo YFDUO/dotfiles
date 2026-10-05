@@ -1,0 +1,33 @@
+cat > ~/.config/waybar/style.css << 'EOF'
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "JetBrainsMono Nerd Font", "Fira Code", monospace;
+    font-size: 13px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(18, 18, 18, 0.9);
+    color: #e0e0e0;
+}
+
+#workspaces button {
+    padding: 0 8px;
+    background: transparent;
+    color: #777;
+}
+
+#workspaces button.active {
+    color: #ffffff;
+}
+
+#clock,
+#network,
+#pulseaudio,
+#battery,
+#tray,
+#window {
+    padding: 0 10px;
+}
+EOF
