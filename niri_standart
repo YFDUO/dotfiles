@@ -1,0 +1,50 @@
+// Минимальный рабочий конфиг Niri
+input { keyboard { xkb { layout "us,ru" options "grp:alt_shift_toggle" } }
+touchpad {
+    tap
+    natural-scroll
+}
+}
+layout { gaps 10 center-focused-column "never"
+preset-column-widths {
+    proportion 0.33333
+    proportion 0.5
+    proportion 0.66667
+}
+
+default-column-width { proportion 0.5; }
+
+focus-ring {
+    width 2
+    active-color "#7aa2f7"
+    inactive-color "#414868"
+}
+}
+// Запуск программ при старте spawn-at-startup "waybar" spawn-at-startup "mako"
+// Горячие клавиши binds { // Основные Mod+T { spawn "alacritty"; } Mod+D { spawn "fuzzel"; } Mod+Q { close-window; } Mod+Shift+E { quit; }
+// Фокус
+Mod+Left  { focus-column-left; }
+Mod+Right { focus-column-right; }
+Mod+Up    { focus-window-up; }
+Mod+Down  { focus-window-down; }
+
+// Перемещение окон
+Mod+Ctrl+Left  { move-column-left; }
+Mod+Ctrl+Right { move-column-right; }
+Mod+Ctrl+Up    { move-window-up; }
+Mod+Ctrl+Down  { move-window-down; }
+
+// Воркспейсы
+Mod+Page_Down { focus-workspace-down; }
+Mod+Page_Up   { focus-workspace-up; }
+Mod+Ctrl+Page_Down { move-column-to-workspace-down; }
+Mod+Ctrl+Page_Up   { move-column-to-workspace-up; }
+
+// Размер
+Mod+F { maximize-column; }
+Mod+R { switch-preset-column-width; }
+
+// Скриншот
+Print { screenshot; }
+Ctrl+Print { screenshot-screen; }
+}
